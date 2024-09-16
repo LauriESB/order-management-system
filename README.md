@@ -10,12 +10,16 @@
 
 </h4>
 
+<br>
 
 > [!NOTE]
 > I'll adjust the readme as I develop the application, because I believe it is important to document everything in a much clearer and comprehensive way, but for now it provides a good overview of the project's core.
 
+<br>
 
 ✨ Give this repository a star!
+
+<br>
 
 Order Management System is a backend solution built to manage orders in a store. It enables the creation, retrieval, updating, and deletion of customers, vendors, and orders. All data is stored and managed using a PostgreSQL database. This system is designed to automate key processes such as tracking customer credit limits, vendor commissions, and linking orders to the correct customer and vendor.
 
