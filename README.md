@@ -13,7 +13,7 @@
 <br>
 
 > [!NOTE]
-> I'll adjust the readme as I develop the application, because I believe it is important to document everything in a much clearer and comprehensive way, but for now it provides a good overview of the project's core.
+> I'll adjust the readme as I develop the application(this includes adding a topic to show how you can download and view it in your PC), because I believe it is important to document everything in a much clearer and comprehensive way, but for now it provides a good overview of the project's core.
 
 <br>
 
