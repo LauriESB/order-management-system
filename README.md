@@ -66,8 +66,9 @@ The project follows the **Controller-Service-Repository** architecture pattern, 
 <details>
 <summary align="left">Project's screenshot</summary>
 <br>
-
-  ![screenshot](images/projects-screenshot.png)
+ sorry lol not yet available
+ 
+ <!--![screenshot](images/projects-screenshot.png)-->
 
 </details>
 
