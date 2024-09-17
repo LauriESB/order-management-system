@@ -2,6 +2,8 @@ package com.lauriesb.order_management.entity;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 @Entity
 
 @Table(name = "Customer")
@@ -131,4 +133,20 @@ public class CustomerEntity {
     public void setAvailableCredit(int availableCredit) {
         this.availableCredit = availableCredit;
     }
+
+    // equals and hashcode methods
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CustomerEntity that = (CustomerEntity) o;
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
+
 }

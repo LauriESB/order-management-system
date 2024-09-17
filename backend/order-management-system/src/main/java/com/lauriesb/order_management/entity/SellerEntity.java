@@ -2,6 +2,8 @@ package com.lauriesb.order_management.entity;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 @Entity
 
 @Table(name = "Seller")
@@ -130,4 +132,20 @@ public class SellerEntity {
     public void setCommissionRate(int commissionRate) {
         this.commissionRate = commissionRate;
     }
+
+    // equals and hashcode methods
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SellerEntity that = (SellerEntity) o;
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
+
 }

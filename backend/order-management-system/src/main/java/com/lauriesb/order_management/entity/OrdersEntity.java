@@ -2,6 +2,8 @@ package com.lauriesb.order_management.entity;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 @Entity
 
 @Table(name ="Orders")
@@ -62,4 +64,20 @@ public class OrdersEntity {
     public void setSellerSSN(String sellerSSN) {
         this.sellerSSN = sellerSSN;
     }
+
+    // equals and hashcode methods
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        OrdersEntity that = (OrdersEntity) o;
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
+
 }
