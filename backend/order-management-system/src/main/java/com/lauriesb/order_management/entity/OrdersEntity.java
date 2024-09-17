@@ -9,75 +9,75 @@ import java.util.Objects;
 @Table(name ="Orders")
 public class OrdersEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    @Column(nullable = false)
-    private String issueDate;
+  @Column(nullable = false)
+  private String issueDate;
 
-    @Column(nullable = false)
-    private int orderValue;
+  @Column(nullable = false)
+  private int orderValue;
 
-    @Column(nullable = false)
-    private String customerSSN;
+  @Column(nullable = false)
+  private String customerSSN;
 
-    @Column(nullable = false)
-    private String sellerSSN;
+  @Column(nullable = false)
+  private String sellerSSN;
 
-    public Long getId() {
-        return id;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-    public String getIssueDate() {
-        return issueDate;
-    }
+  public String getIssueDate() {
+    return issueDate;
+  }
 
-    public void setIssueDate(String issueDate) {
-        this.issueDate = issueDate;
-    }
+  public void setIssueDate(String issueDate) {
+    this.issueDate = issueDate;
+  }
 
-    public int getOrderValue() {
-        return orderValue;
-    }
+  public int getOrderValue() {
+    return orderValue;
+  }
 
-    public void setOrderValue(int orderValue) {
-        this.orderValue = orderValue;
-    }
+  public void setOrderValue(int orderValue) {
+    this.orderValue = orderValue;
+  }
 
-    public String getCustomerSSN() {
-        return customerSSN;
-    }
+  public String getCustomerSSN() {
+    return customerSSN;
+  }
 
-    public void setCustomerSSN(String customerSSN) {
-        this.customerSSN = customerSSN;
-    }
+  public void setCustomerSSN(String customerSSN) {
+    this.customerSSN = customerSSN;
+  }
 
-    public String getSellerSSN() {
-        return sellerSSN;
-    }
+  public String getSellerSSN() {
+    return sellerSSN;
+  }
 
-    public void setSellerSSN(String sellerSSN) {
-        this.sellerSSN = sellerSSN;
-    }
+  public void setSellerSSN(String sellerSSN) {
+    this.sellerSSN = sellerSSN;
+  }
 
-    // equals and hashcode methods
+  // equals and hashcode methods
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        OrdersEntity that = (OrdersEntity) o;
-        return Objects.equals(id, that.id);
-    }
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    OrdersEntity that = (OrdersEntity) o;
+    return Objects.equals(id, that.id);
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(id);
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hashCode(id);
+  }
 
 }
