@@ -1,6 +1,8 @@
 package com.lauriesb.order_management.entity;
 
+import com.lauriesb.order_management.dto.SellerDTO;
 import jakarta.persistence.*;
+import org.springframework.beans.BeanUtils;
 
 import java.util.Objects;
 
@@ -42,6 +44,16 @@ public class SellerEntity {
 
   @Column(nullable = false)
   private int commissionRate;
+
+  // entity constructors
+
+  public SellerEntity(SellerDTO seller) {
+    BeanUtils.copyProperties(seller, this);
+  }
+
+  public SellerEntity() {
+
+  }
 
   //getters and setters
 

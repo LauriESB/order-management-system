@@ -1,9 +1,11 @@
 package com.lauriesb.order_management.dto;
 
+import com.lauriesb.order_management.entity.CustomerEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import org.springframework.beans.BeanUtils;
 
 public class CustomerDTO {
 
@@ -28,6 +30,17 @@ public class CustomerDTO {
   private int creditLimit;
 
   private int availableCredit;
+
+   // connect to entity attributes (database search using dto)
+  // convert entity to DTO
+
+  public CustomerDTO(CustomerEntity customer) {
+    BeanUtils.copyProperties(customer, this);
+  }
+
+  public CustomerDTO() {
+
+  }
 
   // getters and setters
 

@@ -1,9 +1,11 @@
 package com.lauriesb.order_management.dto;
 
+import com.lauriesb.order_management.entity.SellerEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import org.springframework.beans.BeanUtils;
 
 public class SellerDTO {
 
@@ -28,6 +30,16 @@ public class SellerDTO {
   private int baseSalary;
 
   private int commissionRate;
+
+  // DTO constructors
+
+  public SellerDTO(SellerEntity seller) {
+    BeanUtils.copyProperties(seller, this);
+  }
+
+  public SellerDTO() {
+
+  }
 
   // getters and setters
 

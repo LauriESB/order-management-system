@@ -1,6 +1,8 @@
 package com.lauriesb.order_management.entity;
 
+import com.lauriesb.order_management.dto.OrdersDTO;
 import jakarta.persistence.*;
+import org.springframework.beans.BeanUtils;
 
 import java.util.Objects;
 
@@ -24,6 +26,18 @@ public class OrdersEntity {
 
   @Column(nullable = false)
   private String sellerSSN;
+
+  // entity constructors
+
+  public OrdersEntity(OrdersDTO orders) {
+    BeanUtils.copyProperties(orders, this);
+  }
+
+  public OrdersEntity() {
+
+  }
+
+  // getters and setters
 
   public Long getId() {
     return id;

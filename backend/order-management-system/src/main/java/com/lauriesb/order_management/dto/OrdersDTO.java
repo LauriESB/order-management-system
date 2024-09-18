@@ -1,9 +1,11 @@
 package com.lauriesb.order_management.dto;
 
+import com.lauriesb.order_management.entity.OrdersEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import org.springframework.beans.BeanUtils;
 
 public class OrdersDTO {
 
@@ -16,6 +18,16 @@ public class OrdersDTO {
   private String customerSSN;
 
   private String sellerSSN;
+
+  // constructors
+
+  public OrdersDTO(OrdersEntity orders) {
+    BeanUtils.copyProperties(orders, this);
+  }
+
+  public OrdersDTO() {
+
+  }
 
   // getters and setters
 
@@ -58,4 +70,5 @@ public class OrdersDTO {
   public void setSellerSSN(String sellerSSN) {
     this.sellerSSN = sellerSSN;
   }
+
 }

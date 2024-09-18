@@ -1,6 +1,8 @@
 package com.lauriesb.order_management.entity;
 
+import com.lauriesb.order_management.dto.CustomerDTO;
 import jakarta.persistence.*;
+import org.springframework.beans.BeanUtils;
 
 import java.util.Objects;
 
@@ -43,6 +45,15 @@ public class CustomerEntity {
   @Column(nullable = false)
   private int availableCredit;
 
+  // entity constructors
+
+  public CustomerEntity(CustomerDTO customer) {
+    BeanUtils.copyProperties(customer, this);
+  }
+
+  public CustomerEntity() {
+
+  }
 
   //getters and setters
 
