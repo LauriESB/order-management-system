@@ -21,7 +21,7 @@ public class CustomerService {
     return customers.stream().map(CustomerDTO::new).toList();
   }
 
-  public void insert(CustomerDTO customer) {
+  public void create(CustomerDTO customer) {
     CustomerEntity customerEntity = new CustomerEntity(customer);
     customerRepository.save(customerEntity);
   }
