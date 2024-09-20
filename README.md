@@ -13,7 +13,7 @@
 <br>
 
 > [!NOTE]
-> I'll adjust the readme as I develop the application(this includes adding a topic to show how you can download and view it in your PC), because I believe it is important to document everything in a much clearer and comprehensive way, but for now it provides a good overview of the project's core.
+> I'll adjust the readme as I develop the application (this includes adding a topic to show how you can download and view it in your PC), because I believe it is important to document everything in a much clearer and comprehensive way, but for now it provides a good overview of the project's core.
 
 <br>
 
@@ -34,10 +34,10 @@ This project represents my first experience working with Spring Boot and JPA. Pr
 - Track customer credit limits and available credit.
 - Manage customer orders and link them to specific vendors.
 
-### 2. Vendor Management
-- Register and maintain vendor details.
-- Manage vendor commissions based on orders processed.
-- Link vendors to specific sales orders for commission tracking.
+### 2. Seller Management
+- Register and maintain seller details.
+- Manage sellers commissions based on orders processed.
+- Link sellers to specific sales orders for commission tracking.
 
 ### 3. Order Processing
 - Create, modify, and delete sales orders.
@@ -45,17 +45,13 @@ This project represents my first experience working with Spring Boot and JPA. Pr
 - Automatically update customer credit limits based on the orders.
 - Retrieve customer and vendor information using their unique identifiers.
 
-### 4. Data Persistence
-- All data is stored in a **PostgreSQL** database.
-- Use **Spring Data JPA** for seamless interaction with the database.
-
 ## 💻 Technologies Used
 
 - **JDK 21 (Amazon Corretto)**: Java is the primary language for this project.
-- **Spring Boot**: Simplifies the development of the application.
+- **Spring Boot**: Framework to simplify backend development.
   - **Spring Data JPA**: For managing data persistence and database interactions.
-- **PostgreSQL**: The relational database used for data storage.
-- **Maven**: Dependency management and project building.
+- **PostgreSQL**: Relational database for data storage.
+- **Maven**: For dependency management and project building.
 
 ## 📖 Project Structure
 
@@ -66,8 +62,10 @@ The project follows the **Controller-Service-Repository** architecture pattern, 
 <details>
 <summary align="left">Project's screenshot</summary>
 <br>
- sorry lol not yet available
- 
+
+``` 
+sorry 💤 not yet available
+```
  <!--![screenshot](images/projects-screenshot.png)-->
 
 </details>
