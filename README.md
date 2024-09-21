@@ -32,18 +32,17 @@ This project represents my first experience working with Spring Boot and JPA. Pr
 ### 1. Customer Management
 - Register and maintain customer information.
 - Track customer credit limits and available credit.
-- Manage customer orders and link them to specific vendors.
+- Manage customer orders and link them to specific sellers.
 
 ### 2. Seller Management
 - Register and maintain seller details.
-- Manage sellers commissions based on orders processed.
-- Link sellers to specific sales orders for commission tracking.
+- Link sellers to specific orders.
 
 ### 3. Order Processing
-- Create, modify, and delete sales orders.
+- Create, modify, and delete orders.
 - Link orders to specific customers and vendors.
 - Automatically update customer credit limits based on the orders.
-- Retrieve customer and vendor information using their unique identifiers.
+- Retrieve customer and seller information using their unique identifiers.
 
 ## 💻 Technologies Used
 
