@@ -19,12 +19,14 @@ public class CustomerEntity extends PersonEntity {
   private int availableCredit;
 
   @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-  private ArrayList<OrdersEntity> orders;
+  private ArrayList<OrdersEntity> customerOrders;
 
   // entity constructors
 
-  public CustomerEntity(String name, String ssn) {
+  public CustomerEntity(String name, String ssn, int creditLimit) {
     super(name, ssn);
+    this.creditLimit = creditLimit;
+    customerOrders = new ArrayList<>();
   }
 
   public CustomerEntity(CustomerDTO customer) {
@@ -51,6 +53,22 @@ public class CustomerEntity extends PersonEntity {
 
   public void setAvailableCredit(int availableCredit) {
     this.availableCredit = availableCredit;
+  }
+
+  public ArrayList<OrdersEntity> getCustomerOrders() {
+    return customerOrders;
+  }
+
+  public void addCustomerOrders(OrdersEntity order) {
+    this.customerOrders.add(order);
+    order.setCustomer(this);
+    this.availableCredit -= order.getOrderValue();
+  }
+
+  public void removeCustomerOrders(OrdersEntity order) {
+    this.customerOrders.remove(order);
+    order.setCustomer(null);
+    this.availableCredit += order.getOrderValue();
   }
 
   // equals and hashcode methods

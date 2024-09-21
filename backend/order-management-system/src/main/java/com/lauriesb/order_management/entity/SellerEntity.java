@@ -19,12 +19,13 @@ public class SellerEntity extends PersonEntity {
   private int commissionRate;
 
   @OneToMany(mappedBy = "seller", cascade = CascadeType.ALL)
-  private ArrayList<OrdersEntity> orders;
+  private ArrayList<OrdersEntity> sellerOrders;
 
   // entity constructors
 
-  public SellerEntity(String name, String ssn) {
+  public SellerEntity(String name, String ssn, int baseSalary) {
     super(name, ssn);
+    this.baseSalary = baseSalary;
   }
 
   public SellerEntity(SellerDTO seller) {
@@ -51,6 +52,16 @@ public class SellerEntity extends PersonEntity {
 
   public void setCommissionRate(int commissionRate) {
     this.commissionRate = commissionRate;
+  }
+
+  public void addSellerOrder(OrdersEntity order) {
+    this.sellerOrders.add(order);
+    order.setSeller(this);
+  }
+
+  public void removeSellerOrder(OrdersEntity order) {
+    this.sellerOrders.remove(order);
+    order.setSeller(null);
   }
 
   // equals and hashcode methods

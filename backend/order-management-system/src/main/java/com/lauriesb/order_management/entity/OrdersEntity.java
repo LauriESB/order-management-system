@@ -37,6 +37,10 @@ public class OrdersEntity {
 
   // entity constructors
 
+  public OrdersEntity(Long id) {
+    this.id = id;
+  }
+
   public OrdersEntity(OrdersDTO orders) {
     BeanUtils.copyProperties(orders, this);
   }
@@ -85,6 +89,22 @@ public class OrdersEntity {
 
   public void setSellerSSN(String sellerSSN) {
     this.sellerSSN = sellerSSN;
+  }
+
+  public CustomerEntity getCustomer() {
+    return customer;
+  }
+
+  public void setCustomer(CustomerEntity customer) {
+    this.customer = customer;
+  }
+
+  public SellerEntity getSeller() {
+    return seller;
+  }
+
+  public void setSeller(SellerEntity seller) {
+    this.seller = seller;
   }
 
   // equals and hashcode methods
