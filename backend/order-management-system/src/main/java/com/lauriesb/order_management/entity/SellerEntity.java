@@ -13,17 +13,17 @@ import java.util.Objects;
 public class SellerEntity extends PersonEntity {
 
   @Column(nullable = false)
-  private int baseSalary;
+  private double baseSalary;
 
   @Column(nullable = false)
-  private int commissionRate;
+  private double commissionRate;
 
   @OneToMany(mappedBy = "seller", cascade = CascadeType.ALL)
   private ArrayList<OrdersEntity> sellerOrders;
 
   // entity constructors
 
-  public SellerEntity(String name, String ssn, int baseSalary) {
+  public SellerEntity(String name, String ssn, double baseSalary) {
     super(name, ssn);
     this.baseSalary = baseSalary;
   }
@@ -38,19 +38,19 @@ public class SellerEntity extends PersonEntity {
 
   //getters and setters
 
-  public int getBaseSalary() {
+  public double getBaseSalary() {
     return baseSalary;
   }
 
-  public void setBaseSalary(int baseSalary) {
+  public void setBaseSalary(double baseSalary) {
     this.baseSalary = baseSalary;
   }
 
-  public int getCommissionRate() {
+  public double getCommissionRate() {
     return commissionRate;
   }
 
-  public void setCommissionRate(int commissionRate) {
+  public void setCommissionRate(double commissionRate) {
     this.commissionRate = commissionRate;
   }
 

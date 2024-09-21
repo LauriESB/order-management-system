@@ -13,17 +13,17 @@ import java.util.Objects;
 public class CustomerEntity extends PersonEntity {
 
   @Column(nullable = false)
-  private int creditLimit;
+  private double creditLimit;
 
   @Column(nullable = false)
-  private int availableCredit;
+  private double availableCredit;
 
   @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
   private ArrayList<OrdersEntity> customerOrders;
 
   // entity constructors
 
-  public CustomerEntity(String name, String ssn, int creditLimit) {
+  public CustomerEntity(String name, String ssn, double creditLimit) {
     super(name, ssn);
     this.creditLimit = creditLimit;
     customerOrders = new ArrayList<>();
@@ -39,7 +39,7 @@ public class CustomerEntity extends PersonEntity {
 
   //getters and setters
 
-  public int getCreditLimit() {
+  public double getCreditLimit() {
     return creditLimit;
   }
 
@@ -47,7 +47,7 @@ public class CustomerEntity extends PersonEntity {
     this.creditLimit = creditLimit;
   }
 
-  public int getAvailableCredit() {
+  public double getAvailableCredit() {
     return availableCredit;
   }
 
