@@ -31,6 +31,8 @@ public class SellerDTO {
 
   private int commissionRate;
 
+
+
   // DTO constructors
 
   public SellerDTO(SellerEntity seller) {

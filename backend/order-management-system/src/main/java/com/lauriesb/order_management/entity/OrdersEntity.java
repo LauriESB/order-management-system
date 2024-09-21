@@ -27,6 +27,14 @@ public class OrdersEntity {
   @Column(nullable = false)
   private String sellerSSN;
 
+  @ManyToOne
+  @JoinColumn(name = "customerID")
+  private CustomerEntity customer;
+
+  @ManyToOne
+  @JoinColumn(name = "sellerID")
+  private SellerEntity seller;
+
   // entity constructors
 
   public OrdersEntity(OrdersDTO orders) {

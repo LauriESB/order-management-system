@@ -4,6 +4,7 @@ import com.lauriesb.order_management.dto.CustomerDTO;
 import jakarta.persistence.*;
 import org.springframework.beans.BeanUtils;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 @Entity
@@ -16,6 +17,9 @@ public class CustomerEntity extends PersonEntity {
 
   @Column(nullable = false)
   private int availableCredit;
+
+  @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+  private ArrayList<OrdersEntity> orders;
 
   // entity constructors
 
