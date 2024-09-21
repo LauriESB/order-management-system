@@ -57,11 +57,7 @@ This project represents my first experience working with Spring Boot and JPA. Pr
 
 The project follows the **Controller-Service-Repository** architecture pattern, with additional layers for **Entities** and **DTOs** to enhance modularity and maintainability.
 
-<picture>
-<source media="(prefers-color-scheme: dark)" srcset="misc/classB.drawio.svg"/>
-<source media="(prefers-color-scheme: light)" srcset="misc/classW.drawio.svg"/>
- <img width="100%">
-</picture>
+<img align="center" src="misc/uml.png">
 
 ## 🌠✨ Overview
 
