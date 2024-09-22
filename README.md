@@ -21,11 +21,11 @@
 
 <br>
 
-Order Management System is a backend solution built to manage orders in a store. It enables the creation, retrieval, updating, and deletion of customers, vendors, and orders. All data is stored and managed using a PostgreSQL database. This system is designed to automate key processes such as tracking customer credit limits, vendor commissions, and linking orders to the correct customer and vendor.
+Order Management System is a backend solution built to manage orders in a store. It enables the creation, retrieval, updating, and deletion of customers, sellers and orders. All data is stored and managed using a PostgreSQL database. This system is designed to automate key processes such as tracking customer credit limits, vendor commissions, and linking orders to the correct customer and vendor.
 
 ## 💭 Initial Thinking
 
-This project represents my first experience working with Spring Boot and JPA. Previously, I used JDBC and plain Java for my applications, but I wanted to explore more modern tools and approaches, so I chose to follow the Controller-Service-Repository design pattern, alongside Entities and DTOs to ensure better separation of concerns and maintainable code.
+This project represents my first experience working with Spring Boot and JPA. Previously, I used JDBC and plain Java for my applications, but I wanted to explore more modern tools and approaches. I also chose to follow the Controller-Service-Repository design pattern, alongside Entities and DTOs to ensure better separation of concerns and maintainable code.
 
 ## 🎠 Features
 
