@@ -21,12 +21,6 @@ public class OrdersEntity {
   @Column(nullable = false)
   private int orderValue;
 
-  @Column(nullable = false)
-  private String customerSSN;
-
-  @Column(nullable = false)
-  private String sellerSSN;
-
   @ManyToOne
   @JoinColumn(name = "customerID")
   private CustomerEntity customer;
@@ -73,22 +67,6 @@ public class OrdersEntity {
 
   public void setOrderValue(int orderValue) {
     this.orderValue = orderValue;
-  }
-
-  public String getCustomerSSN() {
-    return customerSSN;
-  }
-
-  public void setCustomerSSN(String customerSSN) {
-    this.customerSSN = customerSSN;
-  }
-
-  public String getSellerSSN() {
-    return sellerSSN;
-  }
-
-  public void setSellerSSN(String sellerSSN) {
-    this.sellerSSN = sellerSSN;
   }
 
   public CustomerEntity getCustomer() {
