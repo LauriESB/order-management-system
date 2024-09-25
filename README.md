@@ -40,8 +40,8 @@ This project represents my first experience working with Spring Boot and JPA. Pr
 
 ### 3. Order Processing
 - Create, modify, and delete orders.
-- Link orders to specific customers and vendors.
-- Automatically update customer credit limits based on the orders.
+- Link orders to specific customers and sellers.
+- Automatically update customer credit limits based on their orders.
 - Retrieve customer and seller information using their unique identifiers.
 
 ## 💻 Technologies Used
