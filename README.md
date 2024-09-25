@@ -60,7 +60,7 @@ The project follows the **Controller-Service-Repository** architecture pattern, 
 
 ## 🔮 What have I learned?
 
-Through this project, I had my first experience with Docker and made my first deployment using Render. One of my decisions was to not work with thymeleef for ui because I wanted to focus more on backend development, testing everything mainly through Postman. But yes, I plan on expanding the project when I start learning front-end development.
+I had an introduction to Docker and made my first deployment using Render. One of my decisions was to not work with thymeleef for ui because I wanted to focus more on backend development, testing everything mainly through Postman. But yes, I plan on expanding the code when I start learning front-end development.
 
 Working with the controller-repository-service pattern was also very interesting, it provided me a great level of immersion into real-world projects. I also had to deal with exception handling, something that I had only seen in Exercism's tasks (you can see them [here](https://github.com/LauriESB/exercism-java)) before, so it was also fun to deeply understand. 
 
