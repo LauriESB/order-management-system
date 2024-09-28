@@ -25,9 +25,9 @@ public class CustomerController {
     customerService.create(customer);
   }
 
-  @PutMapping
-  public CustomerDTO update(@RequestBody CustomerDTO customer) {
-    return customerService.update(customer);
+  @PutMapping("/{id}")
+  public CustomerDTO update(@PathVariable("id") Long id, @RequestBody CustomerDTO customer) {
+    return customerService.update(id, customer);
   }
 
   @DeleteMapping("/{id}")

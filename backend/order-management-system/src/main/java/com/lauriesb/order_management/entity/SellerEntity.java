@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import org.springframework.beans.BeanUtils;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -19,7 +20,7 @@ public class SellerEntity extends PersonEntity {
   private double commissionRate;
 
   @OneToMany(mappedBy = "seller", cascade = CascadeType.ALL)
-  private ArrayList<OrdersEntity> sellerOrders;
+  private List<OrdersEntity> sellerOrders;
 
   // entity constructors
 
@@ -55,13 +56,13 @@ public class SellerEntity extends PersonEntity {
   }
 
   public void addSellerOrder(OrdersEntity order) {
-    this.sellerOrders.add(order);
     order.setSeller(this);
+    this.sellerOrders.add(order);
   }
 
   public void removeSellerOrder(OrdersEntity order) {
-    this.sellerOrders.remove(order);
     order.setSeller(null);
+    this.sellerOrders.remove(order);
   }
 
   // equals and hashcode methods

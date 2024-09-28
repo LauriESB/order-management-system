@@ -2,6 +2,7 @@ package com.lauriesb.order_management.service;
 
 import com.lauriesb.order_management.dto.CustomerDTO;
 import com.lauriesb.order_management.entity.CustomerEntity;
+import com.lauriesb.order_management.entity.OrdersEntity;
 import com.lauriesb.order_management.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,9 +27,67 @@ public class CustomerService {
     customerRepository.save(customerEntity);
   }
 
-  public CustomerDTO update(CustomerDTO customer) {
-    CustomerEntity customerEntity = new CustomerEntity(customer);
-    return new CustomerDTO(customerRepository.save(customerEntity));
+  public CustomerDTO update(Long id, CustomerDTO customer) {
+    CustomerEntity customerEntity = customerRepository.findById(id).get();
+
+    if(customer.getSsn() != null) {
+      customerEntity.setSsn(customer.getSsn());
+    }
+
+    if(customer.getName() != null) {
+      customerEntity.setName(customer.getName());
+    }
+
+    if(customer.getAddress() != null) {
+      customerEntity.setAddress(customer.getAddress());
+    }
+
+    if(customer.getCity() != null) {
+      customerEntity.setCity(customer.getCity());
+    }
+
+    if(customer.getState() != null) {
+      customerEntity.setState(customer.getState());
+    }
+
+    if(customer.getAreaCode() != null) {
+      customerEntity.setAreaCode(customer.getAreaCode());
+    }
+
+    if(customer.getPhoneNumber() != null) {
+      customerEntity.setPhoneNumber(customer.getPhoneNumber());
+    }
+
+    if(customer.getPostalCode() != null) {
+      customerEntity.setPostalCode(customer.getPostalCode());
+    }
+
+    if (customer.getCreditLimit() > 0) {
+      Double currentCreditLimit = customerEntity.getCreditLimit();
+      Double currentAvailableCredit = customerEntity.getAvailableCredit();
+
+      // Calcula o quanto de crédito já foi utilizado
+      Double usedCredit = currentCreditLimit - currentAvailableCredit;
+
+      // Atualiza o creditLimit
+      customerEntity.setCreditLimit(customer.getCreditLimit());
+
+      if (usedCredit == null) {
+        // Se não houver gastos, availableCredit deve ser igual ao novo creditLimit
+        customerEntity.setAvailableCredit(customer.getCreditLimit());
+      } else {
+        // Se houve gastos, ajusta o availableCredit proporcionalmente
+        Double newAvailableCredit = customer.getCreditLimit() - usedCredit;
+        customerEntity.setAvailableCredit(newAvailableCredit);
+      }
+    }
+
+    if(customer.getAvailableCredit() != null && customer.getAvailableCredit() > 0) {
+        customerEntity.setAvailableCredit(customer.getAvailableCredit());
+    }
+
+    CustomerEntity updatedCustomer = customerRepository.save(customerEntity);
+    return new CustomerDTO(updatedCustomer);
   }
 
   public void delete(Long id) {
@@ -38,6 +97,10 @@ public class CustomerService {
 
   public CustomerDTO findByID(Long id) {
     return new CustomerDTO(customerRepository.findById(id).get());
+  }
+
+  public CustomerEntity findById(Long id) {
+    return customerRepository.findById(id).get();
   }
 
 }

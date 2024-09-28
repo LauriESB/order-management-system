@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import org.springframework.beans.BeanUtils;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -13,24 +14,30 @@ import java.util.Objects;
 public class CustomerEntity extends PersonEntity {
 
   @Column(nullable = false)
-  private double creditLimit;
+  private Double creditLimit;
 
   @Column(nullable = false)
-  private double availableCredit;
+  private Double availableCredit;
 
   @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-  private ArrayList<OrdersEntity> customerOrders;
+  private List<OrdersEntity> customerOrders;
+
 
   // entity constructors
 
-  public CustomerEntity(String name, String ssn, double creditLimit) {
+  public CustomerEntity(String name, String ssn, Double creditLimit) {
     super(name, ssn);
     this.creditLimit = creditLimit;
-    customerOrders = new ArrayList<>();
+    if (this.availableCredit == null) {
+      this.availableCredit = creditLimit; // availableCredit inicia com creditLimit se não definido
+    }
   }
 
   public CustomerEntity(CustomerDTO customer) {
     BeanUtils.copyProperties(customer, this);
+    if (this.availableCredit == null) {
+      this.availableCredit = creditLimit; // availableCredit inicia com creditLimit se não definido
+    }
   }
 
   public CustomerEntity() {
@@ -39,35 +46,45 @@ public class CustomerEntity extends PersonEntity {
 
   //getters and setters
 
-  public double getCreditLimit() {
+  public Double getCreditLimit() {
     return creditLimit;
   }
 
-  public void setCreditLimit(int creditLimit) {
+  public void setCreditLimit(Double creditLimit) {
     this.creditLimit = creditLimit;
   }
 
-  public double getAvailableCredit() {
+  public Double getAvailableCredit() {
     return availableCredit;
   }
 
-  public void setAvailableCredit(int availableCredit) {
-    this.availableCredit = availableCredit;
+  public void setAvailableCredit(Double availableCredit) {
+
+      this.availableCredit = availableCredit;
+
+
   }
 
-  public ArrayList<OrdersEntity> getCustomerOrders() {
+  public List<OrdersEntity> getCustomerOrders() {
     return customerOrders;
   }
 
   public void addCustomerOrders(OrdersEntity order) {
-    this.customerOrders.add(order);
-    order.setCustomer(this);
-    this.availableCredit -= order.getOrderValue();
+    if(this.availableCredit - order.getOrderValue() < 0) {
+      System.out.println("Insufficient credit");
+    } else {
+
+      order.setCustomer(this);
+
+      this.availableCredit -= order.getOrderValue();
+      this.customerOrders.add(order);
+    }
+
   }
 
   public void removeCustomerOrders(OrdersEntity order) {
-    this.customerOrders.remove(order);
     order.setCustomer(null);
+    this.customerOrders.remove(order);
     this.availableCredit += order.getOrderValue();
   }
 

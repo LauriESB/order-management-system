@@ -27,9 +27,9 @@ public class CustomerDTO {
 
   private String postalCode;
 
-  private int creditLimit;
+  private Double creditLimit;
 
-  private int availableCredit;
+  private Double availableCredit;
 
    // connect to entity attributes (database search using dto)
   // convert entity to DTO
@@ -116,19 +116,19 @@ public class CustomerDTO {
     this.postalCode = postalCode;
   }
 
-  public int getCreditLimit() {
+  public Double getCreditLimit() {
     return creditLimit;
   }
 
-  public void setCreditLimit(int creditLimit) {
+  public void setCreditLimit(Double creditLimit) {
     this.creditLimit = creditLimit;
   }
 
-  public int getAvailableCredit() {
+  public Double getAvailableCredit() {
     return availableCredit;
   }
 
-  public void setAvailableCredit(int availableCredit) {
+  public void setAvailableCredit(Double availableCredit) {
     this.availableCredit = availableCredit;
   }
 

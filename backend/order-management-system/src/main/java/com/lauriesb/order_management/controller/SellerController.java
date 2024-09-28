@@ -25,9 +25,9 @@ public class SellerController {
     sellerService.create(seller);
   }
 
-  @PutMapping
-  public SellerDTO update(@RequestBody SellerDTO seller) {
-    return sellerService.update(seller);
+  @PutMapping("/{id}")
+  public SellerDTO update(@PathVariable("id") Long id, @RequestBody SellerDTO seller) {
+    return sellerService.update(id, seller);
   }
 
   @DeleteMapping("/{id}")

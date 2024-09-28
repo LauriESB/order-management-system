@@ -15,9 +15,9 @@ public class OrdersDTO {
 
   private int orderValue;
 
-  private String customerSSN;
+  private Long sellerId;
 
-  private String sellerSSN;
+  private Long customerId;
 
   // constructors
 
@@ -55,20 +55,21 @@ public class OrdersDTO {
     this.orderValue = orderValue;
   }
 
-  public String getCustomerSSN() {
-    return customerSSN;
+
+  public Long getSellerId() {
+    return sellerId;
   }
 
-  public void setCustomerSSN(String customerSSN) {
-    this.customerSSN = customerSSN;
+  public void setSellerId(Long sellerId) {
+    this.sellerId = sellerId;
   }
 
-  public String getSellerSSN() {
-    return sellerSSN;
+  public Long getCustomerId() {
+    return customerId;
   }
 
-  public void setSellerSSN(String sellerSSN) {
-    this.sellerSSN = sellerSSN;
+  public void setCustomerId(Long customerId) {
+    this.customerId = customerId;
   }
 
 }

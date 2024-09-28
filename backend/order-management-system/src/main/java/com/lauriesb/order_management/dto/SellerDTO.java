@@ -23,13 +23,13 @@ public class SellerDTO {
 
   private String areaCode;
 
-  private String phone;
+  private String phoneNumber;
 
   private String postalCode;
 
-  private int baseSalary;
+  private double baseSalary;
 
-  private int commissionRate;
+  private double commissionRate;
 
 
 
@@ -101,12 +101,12 @@ public class SellerDTO {
     this.areaCode = areaCode;
   }
 
-  public String getPhone() {
-    return phone;
+  public String getPhoneNumber() {
+    return phoneNumber;
   }
 
-  public void setPhone(String phone) {
-    this.phone = phone;
+  public void setPhoneNumber(String phone) {
+    this.phoneNumber = phone;
   }
 
   public String getPostalCode() {
@@ -117,19 +117,19 @@ public class SellerDTO {
     this.postalCode = postalCode;
   }
 
-  public int getBaseSalary() {
+  public double getBaseSalary() {
     return baseSalary;
   }
 
-  public void setBaseSalary(int baseSalary) {
+  public void setBaseSalary(double baseSalary) {
     this.baseSalary = baseSalary;
   }
 
-  public int getCommissionRate() {
+  public double getCommissionRate() {
     return commissionRate;
   }
 
-  public void setCommissionRate(int commissionRate) {
+  public void setCommissionRate(double commissionRate) {
     this.commissionRate = commissionRate;
   }
 
