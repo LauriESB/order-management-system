@@ -19,7 +19,7 @@ public class OrdersEntity {
   private String issueDate;
 
   @Column(nullable = false)
-  private int orderValue;
+  private double orderValue;
 
   @ManyToOne
   @JoinColumn(name = "customerID")
@@ -61,11 +61,11 @@ public class OrdersEntity {
     this.issueDate = issueDate;
   }
 
-  public int getOrderValue() {
+  public double getOrderValue() {
     return orderValue;
   }
 
-  public void setOrderValue(int orderValue) {
+  public void setOrderValue(double orderValue) {
     this.orderValue = orderValue;
   }
 

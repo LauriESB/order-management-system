@@ -13,7 +13,7 @@ public class OrdersDTO {
 
   private String issueDate;
 
-  private int orderValue;
+  private double orderValue;
 
   private Long sellerId;
 
@@ -23,6 +23,14 @@ public class OrdersDTO {
 
   public OrdersDTO(OrdersEntity orders) {
     BeanUtils.copyProperties(orders, this);
+    if (orders.getSeller() != null) {
+      this.sellerId = orders.getSeller().getId();
+    }
+
+    if (orders.getCustomer() != null) {
+      this.customerId = orders.getCustomer().getId();
+    }
+
   }
 
   public OrdersDTO() {
@@ -47,11 +55,11 @@ public class OrdersDTO {
     this.issueDate = issueDate;
   }
 
-  public int getOrderValue() {
+  public double getOrderValue() {
     return orderValue;
   }
 
-  public void setOrderValue(int orderValue) {
+  public void setOrderValue(double orderValue) {
     this.orderValue = orderValue;
   }
 

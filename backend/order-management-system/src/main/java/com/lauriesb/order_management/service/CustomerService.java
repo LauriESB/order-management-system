@@ -66,17 +66,12 @@ public class CustomerService {
       Double currentCreditLimit = customerEntity.getCreditLimit();
       Double currentAvailableCredit = customerEntity.getAvailableCredit();
 
-      // Calcula o quanto de crédito já foi utilizado
       Double usedCredit = currentCreditLimit - currentAvailableCredit;
-
-      // Atualiza o creditLimit
       customerEntity.setCreditLimit(customer.getCreditLimit());
 
       if (usedCredit == null) {
-        // Se não houver gastos, availableCredit deve ser igual ao novo creditLimit
         customerEntity.setAvailableCredit(customer.getCreditLimit());
       } else {
-        // Se houve gastos, ajusta o availableCredit proporcionalmente
         Double newAvailableCredit = customer.getCreditLimit() - usedCredit;
         customerEntity.setAvailableCredit(newAvailableCredit);
       }
