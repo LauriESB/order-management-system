@@ -1,11 +1,16 @@
 package com.lauriesb.order_management.service;
 
 import com.lauriesb.order_management.dto.SellerDTO;
+import com.lauriesb.order_management.entity.PersonEntity;
 import com.lauriesb.order_management.entity.SellerEntity;
+import com.lauriesb.order_management.exceptions.ExistingSSNException;
+import com.lauriesb.order_management.exceptions.InvalidStateException;
+import com.lauriesb.order_management.exceptions.PersonNotFoundException;
 import com.lauriesb.order_management.repository.SellerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.EnumSet;
 import java.util.List;
 
 @Service
@@ -20,12 +25,34 @@ public class SellerService {
   }
 
   public void create(SellerDTO sellers) {
+    if (sellerRepository.existsBySsn(sellers.getSsn())) {
+      throw new ExistingSSNException("SSN already registered", sellers.getSsn());
+    }
+
+    String stateInput = sellers.getState().toLowerCase();
+    try {
+      PersonEntity.BrazilianState state = PersonEntity.BrazilianState.valueOf(stateInput);
+    } catch (IllegalArgumentException e) {
+      throw new InvalidStateException("Invalid state provided", stateInput);
+    }
+
     SellerEntity sellerEntity = new SellerEntity(sellers);
     sellerRepository.save(sellerEntity);
   }
 
   public SellerDTO update(Long id, SellerDTO seller) {
-    SellerEntity sellerEntity = sellerRepository.findById(id).get();
+    SellerEntity sellerEntity = sellerRepository.findById(id).orElseThrow(() -> new PersonNotFoundException("Seller not registered", id));
+
+    if (sellerRepository.existsBySsn(seller.getSsn())) {
+      throw new ExistingSSNException("SSN already registered", seller.getSsn());
+    }
+
+    String stateInput = seller.getState().toLowerCase();
+    try {
+      PersonEntity.BrazilianState state = PersonEntity.BrazilianState.valueOf(stateInput);
+    } catch (IllegalArgumentException e) {
+      throw new InvalidStateException("Invalid state provided", stateInput);
+    }
 
     if(seller.getSsn() != null) {
       sellerEntity.setSsn(seller.getSsn());
@@ -72,7 +99,7 @@ public class SellerService {
   }
 
   public void delete(Long id) {
-    SellerEntity sellerEntity = sellerRepository.findById(id).get();
+    SellerEntity sellerEntity = sellerRepository.findById(id).orElseThrow(() -> new PersonNotFoundException("Seller not registered", id));
     sellerRepository.delete(sellerEntity);
   }
 

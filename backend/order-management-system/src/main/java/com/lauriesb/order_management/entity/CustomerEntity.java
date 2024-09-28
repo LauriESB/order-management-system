@@ -4,7 +4,6 @@ import com.lauriesb.order_management.dto.CustomerDTO;
 import jakarta.persistence.*;
 import org.springframework.beans.BeanUtils;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -59,10 +58,7 @@ public class CustomerEntity extends PersonEntity {
   }
 
   public void setAvailableCredit(Double availableCredit) {
-
-      this.availableCredit = availableCredit;
-
-
+    this.availableCredit = availableCredit;
   }
 
   public List<OrdersEntity> getCustomerOrders() {

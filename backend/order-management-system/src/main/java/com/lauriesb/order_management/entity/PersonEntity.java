@@ -42,6 +42,11 @@ public abstract class PersonEntity {
 
   }
 
+  public enum BrazilianState {
+    ac, al, ap, am, ba, ce, df, es, go, ma, mt, ms, mg, pa, pb, pr, pe, pi, rj, rn, rs, ro, rr, sc, sp, se, to;
+  }
+
+
   // getters and setters
 
   public Long getId() {

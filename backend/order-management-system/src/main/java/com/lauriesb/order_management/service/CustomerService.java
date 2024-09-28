@@ -2,11 +2,16 @@ package com.lauriesb.order_management.service;
 
 import com.lauriesb.order_management.dto.CustomerDTO;
 import com.lauriesb.order_management.entity.CustomerEntity;
-import com.lauriesb.order_management.entity.OrdersEntity;
+import com.lauriesb.order_management.entity.PersonEntity;
+import com.lauriesb.order_management.exceptions.ExistingSSNException;
+import com.lauriesb.order_management.exceptions.InvalidStateException;
+import com.lauriesb.order_management.exceptions.PersonNotFoundException;
+import com.lauriesb.order_management.exceptions.AvailableCreditException;
 import com.lauriesb.order_management.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.EnumSet;
 import java.util.List;
 
 @Service
@@ -23,12 +28,46 @@ public class CustomerService {
   }
 
   public void create(CustomerDTO customer) {
+    if(customer.getAvailableCredit() != null) {
+      if(customer.getAvailableCredit() > customer.getCreditLimit()) {
+        throw new AvailableCreditException("available credit cannot be greater than the credit limit", customer.getAvailableCredit());
+      }
+    }
+
+    if (customerRepository.existsBySsn(customer.getSsn())) {
+      throw new ExistingSSNException("SSN already registered", customer.getSsn());
+    }
+
+    String stateInput = customer.getState().toLowerCase();
+    try {
+      PersonEntity.BrazilianState state = PersonEntity.BrazilianState.valueOf(stateInput);
+    } catch (IllegalArgumentException e) {
+      throw new InvalidStateException("Invalid state provided", stateInput);
+    }
+
     CustomerEntity customerEntity = new CustomerEntity(customer);
     customerRepository.save(customerEntity);
   }
 
   public CustomerDTO update(Long id, CustomerDTO customer) {
-    CustomerEntity customerEntity = customerRepository.findById(id).get();
+    CustomerEntity customerEntity = customerRepository.findById(id).orElseThrow(() -> new PersonNotFoundException("Customer not registered", id));
+
+    if(customer.getAvailableCredit() != null) {
+      if(customer.getAvailableCredit() > customer.getCreditLimit()) {
+        throw new AvailableCreditException("available credit cannot be greater than the credit limit", customer.getAvailableCredit());
+      }
+    }
+
+    if (customerRepository.existsBySsn(customer.getSsn())) {
+      throw new ExistingSSNException("SSN already registered", customer.getSsn());
+    }
+
+    String stateInput = customer.getState().toLowerCase();
+    try {
+      PersonEntity.BrazilianState state = PersonEntity.BrazilianState.valueOf(stateInput);
+    } catch (IllegalArgumentException e) {
+      throw new InvalidStateException("Invalid state provided", stateInput);
+    }
 
     if(customer.getSsn() != null) {
       customerEntity.setSsn(customer.getSsn());
@@ -86,7 +125,7 @@ public class CustomerService {
   }
 
   public void delete(Long id) {
-    CustomerEntity customer = customerRepository.findById(id).get();
+    CustomerEntity customer = customerRepository.findById(id).orElseThrow(() -> new PersonNotFoundException("Customer not registered", id));
     customerRepository.delete(customer);
   }
 
