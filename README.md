@@ -25,7 +25,7 @@ Order Management System is a backend solution built to manage orders in a store.
 
 ## 💭 Initial Thinking
 
-This project represents my first experience working with Spring Boot and JPA. Previously, I used JDBC and plain Java for my applications, but I wanted to explore more modern tools and approaches. I also chose to follow the Controller-Service-Repository design pattern, alongside Entities and DTOs to ensure better separation of concerns and maintainable code.
+This project represents my first experience working with Spring Boot and Spring Data JPA. Previously, I used JDBC and plain Java for my applications, but I wanted to explore more modern tools and approaches. I also chose to follow the Controller-Service-Repository design pattern, alongside Entities and DTOs to ensure better separation of concerns and maintainable code.
 
 ## 🎠 Features
 
