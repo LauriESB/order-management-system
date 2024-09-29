@@ -2,18 +2,9 @@
 
 # Order Management System
 
-[![Study](https://skillicons.dev/icons?i=java,spring,postgresql)](https://skillicons.dev) 
-
 </div>
 
-![Badge em Desenvolvimento](https://img.shields.io/badge/project%20status:-in%20development-purple)
-
-</h4>
-
-<br>
-
-> [!NOTE]
-> I'll adjust the readme as I develop the application (this includes adding a topic to show how you can download and view it in your PC), because I believe it is important to document everything in a much clearer and comprehensive way, but for now it provides a good overview of the project's core.
+<img align="right" src="https://skillicons.dev/icons?i=java,spring,postgresql">
 
 <br>
 
@@ -21,7 +12,18 @@
 
 <br>
 
-Order Management System is a backend solution built to manage orders in a store. It enables the creation, retrieval, updating, and deletion of customers, sellers and orders. All data is stored and managed using a PostgreSQL database. This system is designed to automate key processes such as tracking customer credit limits, vendor commissions, and linking orders to the correct customer and vendor.
+Order Management System is a backend solution built to manage orders in a store. It enables the creation, retrieval, updating, and deletion of customers, sellers and orders. All data is stored and managed using a PostgreSQL database. This system is designed to automate key processes such as tracking customer credit limits and linking orders to the correct customer and seller.
+
+I deployed the application using Render. You can see the testing process with Postman below
+
+<details open>
+<summary>
+ Screenshots
+</summary> <br />
+    
+<p align="center">
+    <img  src="misc/testingProcess.png"/>
+</details>
 
 ## 💭 Initial Thinking
 
@@ -30,19 +32,20 @@ This project represents my first experience working with Spring Boot and Spring 
 ## 🎠 Features
 
 ### 1. Customer Management
-- Register and maintain customer information.
-- Track customer credit limits and available credit.
-- Manage customer orders and link them to specific sellers.
+- **Register and maintain** customer information.
+- **Track** customer credit limits and available credit.
+- Automatically **update customer credit limits** based on their orders.
+- **Change** the customer's available credit (it can never exceed the credit limit)
+- **Increase** the credit limit (the available credit will adjust accordingly)
 
 ### 2. Seller Management
-- Register and maintain seller details.
+- **Create, read, modify, and delete** seller details
 - Link sellers to specific orders.
 
 ### 3. Order Processing
-- Create, modify, and delete orders.
-- Link orders to specific customers and sellers.
-- Automatically update customer credit limits based on their orders.
-- Retrieve customer and seller information using their unique identifiers.
+- **Create, read, modify, and delete** orders
+- Manage customer orders and link them to specific sellers.
+
 
 ## 💻 Technologies Used
 
@@ -66,21 +69,8 @@ Working with the controller-repository-service pattern was also very interesting
 
 Well, it's always great to see how real projects provide such an immersive learning experience.
 
-
-## 🌠✨ Overview
-
-<details>
-<summary align="left">Project's screenshot</summary>
 <br>
 
-
-``` 
-sorry 💤 not yet available
-```
- <!--![screenshot](images/projects-screenshot.png)-->
-
-</details>
-
 <div align="center">
- <img align="center" src="https://static.wikia.nocookie.net/terraria_gamepedia/images/9/95/Baby_Imp_%28flying%29.gif/revision/latest?cb=20211224155014&format=original" alt="baby imp" width="30" height="auto">
+ <img align="center" src="https://static.wikia.nocookie.net/terraria_gamepedia/images/9/95/Baby_Imp_%28flying%29.gif/revision/latest?cb=20211224155014&format=original" alt="baby imp">
 </div>
