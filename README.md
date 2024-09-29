@@ -22,7 +22,7 @@ I deployed the application using Render. You can see the testing process with Po
 </summary> <br />
     
 <p align="center">
-    <img  src="misc/testingProcess.png"/>
+    <img  src="misc/postmanTesting.png"/>
 </details>
 
 ## 💭 Initial Thinking
