@@ -43,10 +43,6 @@ public class SellerService {
   public SellerDTO update(Long id, SellerDTO seller) {
     SellerEntity sellerEntity = sellerRepository.findById(id).orElseThrow(() -> new PersonNotFoundException("Seller not registered", id));
 
-    if (sellerRepository.existsBySsn(seller.getSsn())) {
-      throw new ExistingSSNException("SSN already registered", seller.getSsn());
-    }
-
     String stateInput = seller.getState().toLowerCase();
     try {
       PersonEntity.BrazilianState state = PersonEntity.BrazilianState.valueOf(stateInput);

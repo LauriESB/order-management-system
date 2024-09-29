@@ -58,10 +58,6 @@ public class CustomerService {
       }
     }
 
-    if (customerRepository.existsBySsn(customer.getSsn())) {
-      throw new ExistingSSNException("SSN already registered", customer.getSsn());
-    }
-
     String stateInput = customer.getState().toLowerCase();
     try {
       PersonEntity.BrazilianState state = PersonEntity.BrazilianState.valueOf(stateInput);
