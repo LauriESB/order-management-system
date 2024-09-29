@@ -28,14 +28,14 @@ public class CustomerEntity extends PersonEntity {
     super(name, ssn);
     this.creditLimit = creditLimit;
     if (this.availableCredit == null) {
-      this.availableCredit = creditLimit; // availableCredit inicia com creditLimit se não definido
+      this.availableCredit = creditLimit;
     }
   }
 
   public CustomerEntity(CustomerDTO customer) {
     BeanUtils.copyProperties(customer, this);
     if (this.availableCredit == null) {
-      this.availableCredit = creditLimit; // availableCredit inicia com creditLimit se não definido
+      this.availableCredit = creditLimit;
     }
   }
 
