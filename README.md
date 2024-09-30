@@ -35,11 +35,11 @@ This project represents my first experience working with Spring Boot and Spring 
 - **Register and maintain** customer information.
 - **Track** customer credit limits and available credit.
 - Automatically **update customer credit limits** based on their orders.
-- **Change** the customer's available credit (it can never exceed the credit limit)
-- **Increase** the credit limit (the available credit will adjust accordingly)
+- **Change** the customer's available credit (it can never exceed the credit limit).
+- **Increase** the credit limit (the available credit will adjust accordingly).
 
 ### 2. Seller Management
-- **Create, read, modify, and delete** seller details
+- **Create, read, modify, and delete** seller details.
 - Link sellers to specific orders.
 
 ### 3. Order Processing
@@ -65,7 +65,7 @@ The project follows the **Controller-Service-Repository** architecture pattern, 
 
 I had an introduction to Docker and made my first deployment using Render. One of my decisions was to not work with thymeleef for ui because I wanted to focus more on backend development, testing everything mainly through Postman. But yes, I plan on expanding the code when I start learning front-end development.
 
-Working with the controller-repository-service pattern was also very interesting. I also had to deal with exception handling, something that I had only seen in Exercism's tasks (you can see them [here](https://github.com/LauriESB/exercism-java)) before, so it was also fun to deeply understand. 
+Working with the controller-repository-service pattern was really nice and a new thing to me. I also had to deal with exception handling, something that I had only seen in Exercism's tasks (you can see them [here](https://github.com/LauriESB/exercism-java)) before, so it was also fun to deeply understand. 
 
 Well, it's always great to see how real projects provide such an immersive learning experience.
 
