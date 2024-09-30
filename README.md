@@ -12,7 +12,7 @@
 
 <br>
 
-Order Management System is a backend solution built to manage orders in a store. It enables the creation, retrieval, updating, and deletion of customers, sellers and orders. All data is stored and managed using a PostgreSQL database. This system is designed to automate key processes such as tracking customer credit limits and linking orders to the correct customer and seller.
+Order Management System is a backend application to manage orders in a store. It enables the creation, retrieval, updating, and deletion of customers, sellers and orders. All data is stored and managed using a PostgreSQL database. This system is designed to automate key processes such as tracking customer credit limits and linking orders to the correct customer and seller.
 
 I deployed the application using Render. You can see the testing process with Postman below
 
@@ -68,6 +68,7 @@ I had an introduction to Docker and made my first deployment using Render. One o
 Working with the controller-repository-service pattern was also very interesting, it provided me a great level of immersion into real-world projects. I also had to deal with exception handling, something that I had only seen in Exercism's tasks (you can see them [here](https://github.com/LauriESB/exercism-java)) before, so it was also fun to deeply understand. 
 
 Well, it's always great to see how real projects provide such an immersive learning experience.
+
 
 <br>
 
