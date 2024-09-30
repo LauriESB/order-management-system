@@ -65,10 +65,71 @@ The project follows the **Controller-Service-Repository** architecture pattern, 
 
 I had an introduction to Docker and made my first deployment using Render. One of my decisions was to not work with thymeleef for ui because I wanted to focus more on backend development, testing everything mainly through Postman. But yes, I plan on expanding the code when I start learning front-end development.
 
-Working with the controller-repository-service pattern was also very interesting, it provided me a great level of immersion into real-world projects. I also had to deal with exception handling, something that I had only seen in Exercism's tasks (you can see them [here](https://github.com/LauriESB/exercism-java)) before, so it was also fun to deeply understand. 
+Working with the controller-repository-service pattern was also very interesting. I also had to deal with exception handling, something that I had only seen in Exercism's tasks (you can see them [here](https://github.com/LauriESB/exercism-java)) before, so it was also fun to deeply understand. 
 
 Well, it's always great to see how real projects provide such an immersive learning experience.
 
+## 🎮 How to run it on your PC
+
+<details open>
+<summary>
+ see here
+</summary>
+
+## Prerequisites
+
+Before running the application, make sure you have [Docker](https://docs.docker.com/get-docker/) installed on your machine.
+
+> **Note:** There is no need to have JDK or PostgreSQL installed locally. Docker will handle all dependencies within isolated containers.
+
+## Getting Started
+
+### 1. Clone the repository
+
+
+```bash
+git clone https://github.com/your-username/order-management-app.git
+```
+
+```bash
+cd order-management-system/backend/order-management-system
+```
+
+### 2. Build and run the application
+
+To build and start the application using Docker Compose, run the following command:
+
+```bash
+docker-compose up --build
+```
+
+This command will:
+
+- Build the application image based on the `Dockerfile` in the application.
+- Create and start the containers for both the Spring Boot application and the PostgreSQL database.
+- Set up the necessary environment variables for the database connection.
+
+### 3. Access the application
+
+You can make the HTTP requests now
+
+```
+http://localhost:8080
+```
+
+### 4. Stopping the application
+
+```bash
+docker-compose down
+```
+
+This command will stop and remove the containers, but the database and application data will remain intact unless you explicitly delete the volumes.
+
+### Important Ports
+
+- **Application**: `8080` (Spring Boot Application)
+- **Database**: `5432` (PostgreSQL Database)
+</details>
 
 <br>
 
