@@ -100,7 +100,7 @@ cd order-management-system/backend/order-management-system
 To build and start the application using Docker Compose, run the following command:
 
 ```bash
-docker-compose up --build
+sudo docker-compose up --build
 ```
 
 This command will:
