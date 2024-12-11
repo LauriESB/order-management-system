@@ -123,8 +123,6 @@ http://localhost:8080
 docker-compose down
 ```
 
-This command will stop and remove the containers, but the database and application data will remain intact unless you explicitly delete the volumes.
-
 ### Important Ports
 
 - **Application**: `8080` (Spring Boot Application)
